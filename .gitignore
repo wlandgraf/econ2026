@@ -83,3 +83,5 @@ __recovery/
 
 # Repository-specific files
 source/SampleProject.res
+__smartsetup
+source/Win32/Release/SampleProject.res

@@ -18,7 +18,7 @@ tms smart setup options:
   # folder where smart setup will store the products along with its metadata, like downloaded files, unzipped files, logs, etc.
   # if empty (the default), all folders will be created where this tms.config.yaml file is located.
   # this folder can be located in a different disk than this configuration file.
-  working folder: #..\..\components
+  working folder: __smartsetup
 
   # prevents the machine from going to sleep while smart setup is running. Default is true.
   # note that for this setting to work, "Allow applications to prevent automatic sleep (plugged in)" must be set
@@ -72,7 +72,7 @@ tms smart setup options:
     tms:
       enabled: true
     community:
-      enabled: false
+      enabled: true
 
   # Git client configuration.
   git:
@@ -109,7 +109,7 @@ configuration for all products:
     # You can use "true" or "false" here to skip all or none, and also an array like "[All, Packages, StartMenu, Help, WindowsPath, WebCore, Registry, FileLinks]" to be more specific about what you want to skip.
     # For example: skip register: [StartMenu, Help] would skip registering the start menu and the help, but not the others.
     # When specifically skipping parts, you might want to use negatives, like [All, -StartMenu, -Help] to skip all but start menu and help.
-    skip register: false
+    skip register: true
 
     # if true, smart setup will output the commands it wants to execute, but not execute anything.
     dry run: false
@@ -141,12 +141,12 @@ configuration for all products:
     #- delphisydney
     #- delphi11
     #- delphi12
-    #- delphi13
+    - delphi13
 
   # List of platforms to build for this product. If empty, all installed platforms will be built.
   # Smart Setup will anyway avoid building to a platform if it is not supported or property installed/configured.
   platforms:
-    #- win32intel
+    - win32intel
     #- win64intel
     #- macos32intel
     #- macos64intel
@@ -165,7 +165,7 @@ configuration for all products:
   compilation options:
 
     # Whether to build debug DCUs. Debug DCUs are useful for stepping into the component code, but they take more time to compile and double the used disk space.
-    debug dcus: true
+    debug dcus: false
 
     # Packages can have pre/post build events, which can be a security risk, so we disable them by default.
     # If you need to enable them for some project, create a `configuration for project` section and enable them for that project.
