@@ -30,10 +30,9 @@ procedure TForm1.FormCreate(Sender: TObject);
 var
   Items: Shared<TStringList>;
 begin
-  // Shared<T> usage (automatic reference counting/freeing)
   Items := TStringList.Create;
-  Items.Add('Smart Setup');
-  Memo1.Lines.Add('List content: ', Items[0]);
+  Items.Value.Add('Smart Setup');
+  Memo1.Lines.Add('List content: ' + Items.Value[0]);
 end;
 
 end.
